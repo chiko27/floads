@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'diklat'
+app.config['MYSQL_DB'] = 'floads'
 
 mysql = MySQL(app)
 
@@ -28,7 +28,7 @@ def data():
         tgl = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         cur = mysql.connection.cursor()
         cur.execute(
-            "INSERT INTO web (tglJam, berat, spesies) VALUES (%s,%s,%s)",
+            "INSERT INTO spesies_ikan (tglJam, berat, spesies) VALUES (%s,%s,%s)",
             (tgl, weight, species))
         mysql.connection.commit()
         cur.close()

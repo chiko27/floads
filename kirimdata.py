@@ -8,7 +8,8 @@ i = 0
 while(1):
     ikan = ["Euthynnus affinis","Katsuwonus pelamis"]
     berat = random.uniform(120,170) 
-    spesies = random.choice(ikan)   
+    spesies = random.choice(ikan)  
+     
     myobj = {'weight': berat, 'species': spesies}
 
     # -------kirim data ke server
