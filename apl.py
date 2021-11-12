@@ -35,6 +35,11 @@ def data():
         return 'Data sudah masuk ke database'
     elif request.method == 'GET':
         return "belom dibuat"
+def summary():
+    cur2 = mysql.cursor()
+    amount = "SELECT spesies,count(*) AS Total FROM spesies_ikan GROUP BY spesies"
+    cur2.execute(amount)
+    cur2.close()
 
 if __name__ == '__main__':
     app.run()
