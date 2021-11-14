@@ -35,13 +35,14 @@ def data():
         return 'Data sudah masuk ke database'
     elif request.method == 'GET':
         return "belom dibuat"
+
 @app.route('/summary', methods=["GET", "POST"])
 def summary():
     if request.method == 'POST':
         amount = request.values.get('amount')
         species = request.values.get('species')
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO  (spesies, Total) VALUES (%s,%s)",
+        cur.execute("INSERT INTO jumlah (spesies, Total) VALUES (%s,%s)",
                     (species, amount))
         mysql.connection.commit()
         cur.close()
