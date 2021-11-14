@@ -35,11 +35,19 @@ def data():
         return 'Data sudah masuk ke database'
     elif request.method == 'GET':
         return "belom dibuat"
+@app.route('/summary', methods=["GET", "POST"])
 def summary():
-    cur2 = mysql.cursor()
-    amount = "SELECT spesies,count(*) AS Total FROM spesies_ikan GROUP BY spesies"
-    cur2.execute(amount)
-    cur2.close()
+    if request.method == 'POST':
+        amount = request.values.get('amount')
+        species = request.values.get('species')
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO  (spesies, Total) VALUES (%s,%s)",
+                    (species, amount))
+        mysql.connection.commit()
+        cur.close()
+        return 'Data sudah masuk ke database'
+    elif request.method == 'GET':
+        return "belom dibuat"
 
 if __name__ == '__main__':
     app.run()
