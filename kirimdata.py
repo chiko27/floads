@@ -9,8 +9,9 @@ while(1):
     ikan = ["Euthynnus affinis","Katsuwonus pelamis"]
     berat = random.uniform(120,170) 
     spesies = random.choice(ikan)  
+    total = "SELECT spesies,count(*) AS Total FROM spesies_ikan GROUP BY spesies"
      
-    myobj = {'weight': berat, 'species': spesies}
+    myobj = {'weight': berat, 'species': spesies, 'amount': total}
 
     # -------kirim data ke server
     # -------------------------------------------------
