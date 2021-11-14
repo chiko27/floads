@@ -46,7 +46,7 @@ def summary():
                     (species, amount))
         mysql.connection.commit()
         cur.close()
-        return 'Data sudah masuk ke database'
+        return 'Data 2 sudah masuk ke database'
     elif request.method == 'GET':
         return "belom dibuat"
 
