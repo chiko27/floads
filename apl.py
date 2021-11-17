@@ -16,7 +16,7 @@ mysql = MySQL(app)
 
 @app.route('/')
 def index():
-    return "Bakal Jadi Index"
+    return render_template('index.html')
 
 # --------------- DATABASE ---------------
 @app.route('/database', methods=['GET', 'POST'])
