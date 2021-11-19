@@ -65,7 +65,7 @@ a.gradient-button:hover {
 	margin-bottom: 80px;
 }
 .section-heading span {
-	color: #00bcd4;
+	color: #ffbf48;
 	font-size: 15px;
 	font-weight: 500;
 	letter-spacing: 0.5px;
@@ -118,7 +118,7 @@ a.gradient-button:hover {
 }
 #preloader {
   overflow: hidden;
-  background: linear-gradient(145deg, rgba(114,2,187,1) 0%, rgba(50,100,245,1) 100%);
+  background: linear-gradient(145deg, rgb(255, 201, 86) 0%, rgba(50,100,245,1) 100%);
   left: 0;
   right: 0;
   top: 0;
@@ -210,6 +210,9 @@ header {
     -o-transition: all .5s ease 0s;
     transition: all .5s ease 0s;
 }
+.background-header .logo{
+	margin-right: 100px
+}
 .background-header {
 	background-color: #fff!important;
 	box-shadow: 0px 1px 10px rgba(0,0,0,0.1);
@@ -223,29 +226,30 @@ header {
 .background-header .functional-buttons	ul li:first-child a {
 	display: inline-block;
 	background-color: transparent;
-	border: 2px solid #00bcd4;
+	border: 2px solid #3685cf;
 	text-transform: uppercase;
 	font-size: 13px;
-	color: #00bcd4;
+	color: #3685cf;
 	padding: 6px 20px;
 	letter-spacing: 0.5px;
 	transition: all 0.5s;
 }
 .background-header .functional-buttons	ul li:first-child a:hover {
 	color: #fff;
-	background-color: #00bcd4;
-	border-color: #00bcd4;
+	background-color: #3685cf;
+	border-color: #3685cf;
 }
 .background-header .navbar-nav .nav-link:hover,
 .background-header .navbar-nav .active>.nav-link,
 .background-header .navbar-nav .nav-link.active,
 .background-header .navbar-nav .nav-link.show,
 .background-header .navbar-nav .show>.nav-link {
-	color: #00bcd4!important;
+	color: #3685cf!important;
 }
 .navbar .navbar-brand {
 	float: 	left;
 	margin-top: 12px;
+	margin-left: 100px;
 	outline: none;
 }
 .navbar .navbar-brand h2 {
@@ -285,7 +289,7 @@ header {
 .navbar .navbar-nav .nav-link.active,
 .navbar .navbar-nav .nav-link.show,
 .navbar .navbar-nav .show>.nav-link {
-	color: #00bcd4;
+	color: #ffbf48;
 }
 .navbar .navbar-toggler-icon {
 	background-image: none;
@@ -302,7 +306,7 @@ header {
 }
 .navbar .navbar-toggler-icon:after {
 	content: '\f0c9';
-	color: #00bcd4;
+	color: #ffbf48;
 	font-size: 18px;
 	line-height: 26px;
 	font-family: 'FontAwesome';
@@ -330,13 +334,13 @@ header {
 	transition: all 0.5s;
 }
 .functional-buttons	ul li:first-child a:hover {
-	color: #00bcd4;
+	color: #ffc36a;
 	background-color: #fff;
 }
 .functional-buttons	ul li:last-child a {
 	display: inline-block;
-	background-color: #00bcd4;
-	border: 2px solid #00bcd4;
+	background-color: #3685cf;
+	border: 2px solid #3685cf;
 	text-transform: uppercase;
 	font-size: 13px;
 	color: #fff;
@@ -345,8 +349,8 @@ header {
 	transition: all 0.5s;
 }
 .functional-buttons	ul li:last-child a:hover {
-	background-color: #00a4b9;
-	border-color: #00a4b9;
+	background-color: #ffbf48;
+	border-color: #ffbf48;
 }
 
 /* Banner Style */
@@ -365,9 +369,32 @@ header {
 	letter-spacing: 1px;
 	margin-top: 0px;
 	margin-bottom: 50px;
-	font-size: 32px;
+	font-size: 40px;
 	font-weight: 700;
-	color: #fff;
+	color: rgb(255, 255, 255);
+}
+.banner .caption p {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-top: 0px;
+	margin-bottom: 50px;
+	font-size: 20px;
+	font-weight: 700;
+	color: rgb(255, 255, 255);
+}
+.banner .caption p2 {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-top: 0px;
+	margin-bottom: 50px;
+	font-size: 20px;
+	font-weight: 700;
+	color: rgb(255, 148, 47);
+}
+.banner .logo {
+	width: 100; 
+	float: center;
+	padding: 100;
 }
 .banner #search-section fieldset {
 	display: inline-block;
@@ -675,7 +702,7 @@ header {
 	display: inline-block;
 	text-align: center;
 	line-height: 60px;
-	color: #fff;
+	color: rgb(255, 166, 50);
 	background: rgb(114,2,187);
     background: linear-gradient(145deg, rgba(114,2,187,1) 0%, rgba(50,100,245,1) 100%);
     border-radius: 50%;
@@ -700,7 +727,7 @@ header {
 	display: inline-block;
 	margin-top: 8px;
 	font-size: 15px;
-	color: #00bcd4;
+	color: #ffbf48;
 }
 .owl-testimonials .owl-dots .owl-dot {
   border-radius: 3px;
@@ -720,13 +747,13 @@ header {
     height: 8px;
     border-radius: 50%;
     margin: 0 4px;
-    background-color: #7bd9e5;
+    background-color: #ffbf48;
 }
 .owl-testimonials .owl-dots .owl-dot:focus {
     outline: none
 }
 .owl-testimonials .owl-dots .owl-dot.active {
-    background-color: #00bcd4;
+    background-color: #fdd03d;
 }
 
 
