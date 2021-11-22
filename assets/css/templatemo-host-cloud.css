@@ -515,7 +515,10 @@ header {
 	margin-top: 140px;
 }
 .services-section .section-heading h2 {
-	color: #1e1e1e;
+	color: #ffffff;
+}
+.services-section .section-heading p {
+	color: #ffffff;
 }
 .services-section .service-item {
 	background-color: #f7f7f7;
@@ -653,9 +656,10 @@ header {
 	text-align: center;
 }
 .features-section .section-heading h2 {
-	color: #1e1e1e;
+	color: #ffffff;
 }
 .features-section .feature-item {
+	background-color: rgb(2, 61, 109);
 	box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
 	border-radius: 5px;
 	padding: 30px;
@@ -671,11 +675,12 @@ header {
 }
 .features-section .feature-item h4 {
 	font-size: 18px;
-	color: #1e1e1e;
+	color: #ffffff;
 	letter-spacing: 0.5px;
 	font-weight: 700;
 }
 .features-section .feature-item p {
+	color: #ffffff;
 	margin-left: 106px;
 }
 
@@ -684,14 +689,14 @@ header {
 /* Testimonials Style */
 .testimonials-section {
 	margin-top: 140px;
-	background-color: #f7f7f7;
+	background: linear-gradient(rgb(1, 80, 125) 30%, rgb(2, 15, 88) 100%);
 	padding: 100px 0px;
 }
 .testimonials-section .section-heading {
 	text-align: center;
 }
 .testimonials-section .section-heading h2 {
-	color: #1e1e1e;
+	color: #ffffff;
 }
 .testimonial-item {
 	text-align: center;
@@ -710,6 +715,7 @@ header {
     margin-bottom: 45px;
 }
 .testimonial-item p {
+	color: #ffffff;
 	font-size: 19px;
 	font-weight: 300;
 	font-style: italic;
@@ -719,7 +725,7 @@ header {
 .testimonial-item h4 {
 	font-size: 19px;
 	font-weight: 700;
-	color: #1e1e1e;
+	color: #ffffff;
 	letter-spacing: 0.5px;
 	margin-bottom: 0px;
 }
