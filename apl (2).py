@@ -17,12 +17,15 @@ mysql = MySQL(app)
 
 @app.route('/')
 def index():
-    return render_template('index(2).html')
+    return render_template('index.html')
 
 @app.route ('/about')
 def about():
     return render_template('about.html')
 
+@app.route ('/data')
+def datapage():
+    return render_template('data.html')
 # --------------- DATABASE ---------------
 @app.route('/database', methods=['GET', 'POST'])
 def data():
