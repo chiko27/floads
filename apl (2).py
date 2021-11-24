@@ -18,7 +18,6 @@ mysql = MySQL(app)
 @app.route('/')
 def index():
     return render_template('index.html')
-<<<<<<< HEAD
 
 
 @app.route('/', methods=["GET", "POST"])
@@ -70,9 +69,6 @@ def login():
 def logout():
     session.clear()
     return render_template('login.html')
-
-=======
->>>>>>> fc81ec53b3f01ba3a43682aba690c2d50b955df8
 
 @app.route ('/about')
 def about():
