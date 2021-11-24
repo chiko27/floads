@@ -100,4 +100,5 @@ def data():
 
 
 if __name__ == '__main__':
+    app.secret_key = "diklatmitr11"
     app.run(debug="True")
