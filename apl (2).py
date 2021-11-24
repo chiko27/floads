@@ -60,7 +60,7 @@ def login():
             if password == user['password']:
                 session['name'] = user['name']
                 session['email'] = user ['email']
-                return redirect(url_for('home'))
+                return redirect(url_for('index'))
         else:
             return 'Error password or user does not match'
     else :
