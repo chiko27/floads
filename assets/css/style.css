@@ -11066,7 +11066,6 @@ table.footable-paging-center > tfoot > tr.footable-paging > td {
 .error-403,
 .login {
   align-items: center;
-  background-color: #2196F3;
   display: flex;
   height: 100%;
   position: fixed;
