@@ -29,6 +29,10 @@ def about():
     #untuk menampilkan template gunakan render_template
     return render_template("instrumen.html") 
 
+@app.route('/', methods=["GET", "POST"])
+def main():
+    return render_template('login.html')
+
 @app.route('/sensor1', methods=['GET','POST'])
 def sensor1():
     if request.method == 'POST':
