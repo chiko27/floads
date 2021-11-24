@@ -18,6 +18,7 @@ mysql = MySQL(app)
 @app.route('/')
 def index():
     return render_template('index.html')
+<<<<<<< HEAD
 
 
 @app.route('/', methods=["GET", "POST"])
@@ -70,11 +71,16 @@ def logout():
     session.clear()
     return render_template('login.html')
 
+=======
+>>>>>>> fc81ec53b3f01ba3a43682aba690c2d50b955df8
 
 @app.route ('/about')
 def about():
     return render_template('about.html')
 
+@app.route ('/data')
+def datapage():
+    return render_template('data.html')
 # --------------- DATABASE ---------------
 @app.route('/database', methods=['GET', 'POST'])
 def data():
