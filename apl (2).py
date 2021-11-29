@@ -1,7 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect, make_response, session
 from time import time
-from datetime import date, datetime
-from random import random
+from datetime import datetime
 import json
 from flask_mysqldb import MySQL
 
@@ -78,6 +77,7 @@ def about():
 @app.route ('/data')
 def datapage():
     return render_template('data.html')
+
 # --------------- DATABASE ---------------
 @app.route('/database', methods=['GET', 'POST'])
 def data():
@@ -95,6 +95,30 @@ def data():
         return 'Data sudah masuk ke database'
     elif request.method == 'GET':
         return "belom dibuat"
+
+@app.route('/data', methods=["GET", "POST"])
+def data():
+    # Data Format
+    # [TIME, Depth, Dissolved Oxygen]
+    cur = mysql.connection.cursor()
+    resultValue = cur.execute(
+        "SELECT * FROM stasiun1 order by no desc limit 1")
+    if resultValue > 0:
+        datasensor = cur.fetchall()
+        print(datasensor[0][2])  # Nilai1
+        print(datasensor[0][3])  # Nilai2
+        depth = datasensor[0][2]
+        velo = datasensor[0][3]
+        data = [time() * 1000, depth, velo]
+        response = make_response(json.dumps(data))
+        response.content_type = 'application/json'
+    else:
+        depth = 0
+        velo = 0
+        data = [time() * 1000, depth, velo]
+        response = make_response(json.dumps(data))
+        response.content_type = 'application/json'
+    return response
 
 # --------------- DATABASE END ---------------
 
