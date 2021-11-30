@@ -470,7 +470,7 @@ section {
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: #37517e;
+  color: #ffffff;
 }
 .section-title h2::before {
   content: "";
@@ -494,6 +494,7 @@ section {
 }
 .section-title p {
   margin-bottom: 0;
+  color: #ffffff;
 }
 
 /*--------------------------------------------------------------
