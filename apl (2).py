@@ -10,7 +10,7 @@ app = Flask(__name__, static_folder=STATIC_FOLDER)
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'floads(2)'
+app.config['MYSQL_DB'] = 'floads'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 mysql = MySQL(app)
@@ -35,7 +35,7 @@ def regis():
 
         cur = mysql.connection.cursor()
         cur.execute(
-            "INSERT INTO user(name, email, password) values (%s,%s,%s)", (name, email, password,)
+            "INSERT INTO account(name, email, password) values (%s,%s,%s)", (name, email, password,)
         )
         mysql.connection.commit()
         session['name'] = name
@@ -50,18 +50,18 @@ def login():
 
         cur = mysql.connection.cursor()
         cur.execute(
-            "SELECT * FROM user where email=%s", (email,)
+            "SELECT * FROM account where email=%s", (email,)
         )
-        user =cur.fetchone()
+        account =cur.fetchone()
         cur.close()
 
-        if len(user)>0:
-            if password == user['password']:
-                session['name'] = user['name']
-                session['email'] = user ['email']
+        if len(account)>0:
+            if password == account['password']:
+                session['name'] = account['name']
+                session['email'] = account ['email']
                 return redirect(url_for('index'))
         else:
-            return 'Error password or user does not match'
+            return 'Error password or account does not match'
     else :
         return render_template('login.html')
 
@@ -83,39 +83,45 @@ def datapage():
 def data():
     if request.method == 'POST':
         # mengambil nilai yg dikirimkan
-        weight = request.values.get('weight')
-        species = request.values.get('species')
+        berat = request.values.get('berat')
+        spesies = request.values.get('spesies')
+        lokasi = request.values.get('lokasi')
+        id_nelayan = request.values.get('id_nelayan')
+        id_kapal = request.values.get('id_kapal')
         tgl = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         cur = mysql.connection.cursor()
         cur.execute(
-            "INSERT INTO spesies_ikan (tglJam, berat, spesies) VALUES (%s,%s,%s)",
-            (tgl, weight, species))
+            "INSERT INTO hasil_tangkapan (tglJam, id_kapal, id_nelayan, lokasi, spesies, berat) VALUES (%s,%s,%s,%s,%s,%s)",
+            (tgl, id_kapal, id_nelayan, lokasi, spesies, berat))
         mysql.connection.commit()
         cur.close()
         return 'Data sudah masuk ke database'
     elif request.method == 'GET':
-        return "belom dibuat"
+        return "NONE"
 
-@app.route('/data', methods=["GET", "POST"])
-def data():
+@app.route('/data2', methods=["GET", "POST"])
+def data2():
     # Data Format
-    # [TIME, Depth, Dissolved Oxygen]
     cur = mysql.connection.cursor()
     resultValue = cur.execute(
-        "SELECT * FROM stasiun1 order by no desc limit 1")
+        "SELECT * FROM hasil_tangkapan order by no desc limit 1")
     if resultValue > 0:
         datasensor = cur.fetchall()
-        print(datasensor[0][2])  # Nilai1
-        print(datasensor[0][3])  # Nilai2
-        depth = datasensor[0][2]
-        velo = datasensor[0][3]
-        data = [time() * 1000, depth, velo]
+        id_kapal = datasensor[0][2]
+        id_nelayan = datasensor[0][3]
+        lokasi = datasensor[0][4]
+        spesies = datasensor[0][5]
+        berat = datasensor[0][6]
+        data = [time() * 1000, id_kapal, id_nelayan, lokasi, spesies, berat]
         response = make_response(json.dumps(data))
         response.content_type = 'application/json'
     else:
-        depth = 0
-        velo = 0
-        data = [time() * 1000, depth, velo]
+        id_kapal = 0
+        id_nelayan = 0
+        lokasi = 0
+        spesies = 0
+        berat = 0
+        data = [time() * 1000, id_kapal, id_nelayan, lokasi, spesies, berat]
         response = make_response(json.dumps(data))
         response.content_type = 'application/json'
     return response
