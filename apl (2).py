@@ -40,7 +40,11 @@ def regis():
         mysql.connection.commit()
         session['name'] = name
         session['email'] = email
+<<<<<<< HEAD
         return redirect(url_for('login'))
+=======
+        return render_template('login(2).html')
+>>>>>>> 54858b40fa9ab81e21cccddb199b3c1c56568f58
 
 @app.route('/login', methods=["GET","POST"])
 def login():
