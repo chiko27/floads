@@ -16,6 +16,8 @@
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style (2).css" rel="stylesheet">
+    <link href="assets/css/highchart.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css">
@@ -63,8 +65,8 @@
             </div>
             <div class="functional-buttons">
               <ul>
-                <li><a href="#">Log in</a></li>
-                <li><a href="#">Sign Up</a></li>
+                <li><a href="/login">Sign in</a></li>
+                <li><a href="/register">Sign Up</a></li>
               </ul>
             </div>
           </div>
@@ -85,6 +87,20 @@
         </div>
       </div>
       <!-- Heading Ends Here -->
+
+      <section id="portfolio" class="portfolio">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>Hasil Tangkapan Ikan</h2>
+              <figure class="highcharts-figure">
+                <div id="container"></div>
+                <p class="highcharts-description">
+                    Chart showing data updating every second, with old data being removed.
+                </p>
+              </figure>
+    
+
 
     <!--Dummy Content-->
     <div>
@@ -181,9 +197,15 @@
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   
       <!-- Additional Scripts -->
+      
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="https://code.highcharts.com/modules/exporting.js"></script>
+      <script src="https://code.highcharts.com/modules/export-data.js"></script>
+      <script src="https://code.highcharts.com/modules/accessibility.js"></script>
       <script src="assets/js/custom.js"></script>
       <script src="assets/js/owl.js"></script>
       <script src="assets/js/accordions.js"></script>
+      <script src="assets/js/highchart.js"></script>
   
   
       <script language = "text/Javascript"> 

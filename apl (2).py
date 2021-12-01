@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect, make_response, session
 from time import time
-from datetime import datetime
+from datetime import datetime, date
 import json
 from flask_mysqldb import MySQL
 
@@ -40,7 +40,7 @@ def regis():
         mysql.connection.commit()
         session['name'] = name
         session['email'] = email
-        return redirect(url_for('main'))
+        return redirect(url_for('login'))
 
 @app.route('/login', methods=["GET","POST"])
 def login():
@@ -88,7 +88,7 @@ def data():
         lokasi = request.values.get('lokasi')
         id_nelayan = request.values.get('id_nelayan')
         id_kapal = request.values.get('id_kapal')
-        tgl = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        tgl = date.today()
         cur = mysql.connection.cursor()
         cur.execute(
             "INSERT INTO hasil_tangkapan (tglJam, id_kapal, id_nelayan, lokasi, spesies, berat) VALUES (%s,%s,%s,%s,%s,%s)",
