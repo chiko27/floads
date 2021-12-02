@@ -7,10 +7,15 @@ Highcharts.chart('container', {
             load: function () {
 
                 // set up the updating of the chart each second
-                var series = this.series[0];
+                var requests = $.get("/data");
+                var series = tongkol.series[0];
+                var data1 = [];
+                data1.push(result[0]);
+                data1.push(result[1]);
+
                 setInterval(function () {
                     var x = (new Date()).getTime(), // current time
-                        y = Math.random();
+                        y = Math.round(data1[1]);
                     series.addPoint([x, y], true, true);
                 }, 1000);
             }

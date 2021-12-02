@@ -40,11 +40,7 @@ def regis():
         mysql.connection.commit()
         session['name'] = name
         session['email'] = email
-<<<<<<< HEAD
-        return redirect(url_for('login'))
-=======
         return render_template('login(2).html')
->>>>>>> 54858b40fa9ab81e21cccddb199b3c1c56568f58
 
 @app.route('/login', methods=["GET","POST"])
 def login():
@@ -88,15 +84,27 @@ def data():
     if request.method == 'POST':
         # mengambil nilai yg dikirimkan
         berat = request.values.get('berat')
-        spesies = request.values.get('spesies')
-        lokasi = request.values.get('lokasi')
-        id_nelayan = request.values.get('id_nelayan')
-        id_kapal = request.values.get('id_kapal')
-        tgl = date.today()
+        tgl = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         cur = mysql.connection.cursor()
         cur.execute(
-            "INSERT INTO hasil_tangkapan (tglJam, id_kapal, id_nelayan, lokasi, spesies, berat) VALUES (%s,%s,%s,%s,%s,%s)",
-            (tgl, id_kapal, id_nelayan, lokasi, spesies, berat))
+            "INSERT INTO tangkapan_tongkol(tglJam, berat) VALUES (%s,%s)",
+            (tgl, berat))
+        mysql.connection.commit()
+        cur.close()
+        return 'Data sudah masuk ke database'
+    elif request.method == 'GET':
+        return "NONE"
+
+@app.route('/database1', methods=['GET', 'POST'])
+def data1():
+    if request.method == 'POST':
+        # mengambil nilai yg dikirimkan
+        weight = request.values.get('berat')
+        tgl = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        cur = mysql.connection.cursor()
+        cur.execute(
+            "INSERT INTO tangkapan_cakalang(tglJam, berat) VALUES (%s,%s)",
+            (tgl, weight))
         mysql.connection.commit()
         cur.close()
         return 'Data sudah masuk ke database'
@@ -108,24 +116,35 @@ def data2():
     # Data Format
     cur = mysql.connection.cursor()
     resultValue = cur.execute(
-        "SELECT * FROM hasil_tangkapan order by no desc limit 1")
+        "SELECT * FROM tangkapan_tongkol order by no desc limit 1")
     if resultValue > 0:
         datasensor = cur.fetchall()
-        id_kapal = datasensor[0][2]
-        id_nelayan = datasensor[0][3]
-        lokasi = datasensor[0][4]
-        spesies = datasensor[0][5]
-        berat = datasensor[0][6]
-        data = [time() * 1000, id_kapal, id_nelayan, lokasi, spesies, berat]
+        berat = datasensor[0][2]
+        data = [time() * 1000, berat]
         response = make_response(json.dumps(data))
         response.content_type = 'application/json'
     else:
-        id_kapal = 0
-        id_nelayan = 0
-        lokasi = 0
-        spesies = 0
         berat = 0
-        data = [time() * 1000, id_kapal, id_nelayan, lokasi, spesies, berat]
+        data = [time() * 1000, berat]
+        response = make_response(json.dumps(data))
+        response.content_type = 'application/json'
+    return response
+
+@app.route('/data3', methods=["GET", "POST"])
+def data3():
+    # Data Format
+    cur = mysql.connection.cursor()
+    resultValue = cur.execute(
+        "SELECT * FROM tangkapan_cakalang order by no desc limit 1")
+    if resultValue > 0:
+        datasensor = cur.fetchall()
+        berat = datasensor[0][2]
+        data = [time() * 1000, berat]
+        response = make_response(json.dumps(data))
+        response.content_type = 'application/json'
+    else:
+        berat = 0
+        data = [time() * 1000, berat]
         response = make_response(json.dumps(data))
         response.content_type = 'application/json'
     return response
