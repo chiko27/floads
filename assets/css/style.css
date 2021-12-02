@@ -160,6 +160,46 @@ p {
 .filter-bar .navbar .navbar-nav .dropdown-menu {
   position: absolute; }
 
+.navbar-collapse {
+  background: none !important;
+}
+
+.navbar button.navbar-toggler[data-target="#navigation"] {
+  padding-top: 0;
+}
+
+.navbar .navbar-toggler-bar {
+  display: block;
+  position: relative;
+  width: 22px;
+  height: 1px;
+  border-radius: 1px;
+  background: #ffffff;
+}
+
+.navbar .navbar-toggler-bar+.navbar-toggler-bar {
+  margin-top: 7px;
+}
+
+.navbar-nav .nav-link.profile-photo {
+  padding: 0;
+  margin: 7px 0.7rem;
+}
+
+.btn.dropdown-toggle[data-toggle="dropdown"] {
+  padding: 10px;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.profile-photo .profile-photo-small {
+  margin-left: -2px;
+}
+
+.button-dropdown {
+  display: none;
+}
+
 /*====== Ready to use Css Start ======*/
 .wrapper {
   padding: 0; }

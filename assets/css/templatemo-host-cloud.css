@@ -271,6 +271,14 @@ header {
 }
 .navbar-collapse {
 	text-align: center;
+
+}
+.navbar-collapse .photo{
+	display: block;
+	margin-left: 10px;
+	margin-right: 20px;
+	width: 10%;	
+	height: 1%;
 }
 .navbar .navbar-nav .nav-item {
 	margin: 0px 15px;
