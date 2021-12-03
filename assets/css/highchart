@@ -6,7 +6,7 @@
 }
 
 #container {
-    height: 200px;
+    height: 400px;
 }
 
 .highcharts-data-table table {
@@ -42,5 +42,5 @@
 }
 
 .highcharts-data-table tr:hover {
-    background: #fff7f1;
+    background: #f1f7ff;
 }
