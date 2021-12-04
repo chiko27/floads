@@ -61,9 +61,13 @@
               <li class="nav-item">
                 <a class="nav-link" href="/about">About Us</a>
               </li>
+              {% if session['name'] %}
               <li class="nav-item">
                 <a class="nav-link" href="/data">Data</a>
               </li>
+              {% else %}
+              <a href="/">LOGIN First!</a>
+              {% endif %}
             </ul>
           </div>
           <div class="functional-buttons">
@@ -166,7 +170,7 @@
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <div class="portfolio-img"><img src="assets/images/6.png" class="img-fluid" alt=""></div>
             <div class="portfolio-info">
-              <h4>Dimensi</h4>
+              <h4>Penempatan FLOADS</h4>
               <a href="assets/images/6.png" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i class="bx bx-plus"></i></a>
             </div>
           </div>

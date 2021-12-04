@@ -1,3 +1,4 @@
+{% if session['name'] %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,11 +71,27 @@
                 <li><a href="/register">Sign Up</a></li>
               </ul>
             </div>
+            <div class="collapse navbar-collapse" id="navigation">
+              <li class="dropdown nav-item" style="list-style: none;">
+                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                  <div class="photo">
+                    <img src="assets/images/profile.png" width="40px" alt="Profile Photo">
+                  </div>
+                  <b class="caret d-none d-lg-block d-xl-block"></b>
+                  <p class="d-lg-none">
+                    Log out
+                  </p>
+                </a>
+                <ul class="dropdown-menu dropdown-navbar">
+                  <li class="nav-link"><a href="/" class="nav-item dropdown-item">Profile</a></li>
+                  <li class="nav-link"><a href="/login" class="nav-item dropdown-item">Log out</a></li>
+                </ul>
+              </li>
+            </div>
           </div>
         </nav>
       </header>
 
-    <!-- Page Content -->
 
     <!-- Heading Starts Here -->
     <div class="page-heading header-text">
@@ -94,7 +111,6 @@
   
           <div class="section-title">
             <h2>Hasil Tangkapan Ikan</h2>
-<<<<<<< HEAD
             <figure class="highcharts-figure">
                 <div id="container"></div>
             </figure>
@@ -106,104 +122,10 @@
             <figure class="highcharts-figure">
               <div id="container3"></div>
             </figure>
-    
-
-
-    <!--Dummy Content-->
-    <div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-    </div>
-    <!--Dummy Content Ends-->
-=======
-              <canvas id="chart" width="20" height="20"></canvas>
-              <script>
-                    const ctx = document.getElementById('chart').getContext('2d');
-                    const myChart = new Chart(ctx, {
-                        type: 'line',
-                        data: {
-                            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                            datasets: [{
-                                label: 'Hasil Tangkapan Ikan Tongkol',
-                                data: [12, 19, 3, 5, 2, 3],
-                                backgroundColor: [
-                                    'rgb(255, 255, 255)',
-                                    'rgb(255, 255, 255)',
-                                    'rgb(255, 255, 255)',
-                                    'rgb(255, 255, 255)',
-                                    'rgb(255, 255, 255)',
-                                    'rgb(255, 255, 255)'
-                                ],
-                                borderColor: [
-                                    'rgba(255, 99, 132, 1)',
-                                    'rgba(54, 162, 235, 1)',
-                                    'rgba(255, 206, 86, 1)',
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(153, 102, 255, 1)',
-                                    'rgba(255, 159, 64, 1)'
-                                ],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                y: {
-                                    beginAtZero: true
-                                }
-                            }
-                        }
-                    });
-                    </script>
-          </div>
-        </div>
-        </section>
->>>>>>> a88d86e2c68a332cf43348ce96250f35e8119611
+    <br />
+    <br />
+    <br />
+    <br />
 
     <!-- Footer Starts Here -->
     <footer>
@@ -260,3 +182,6 @@
   
     </body>
   </html>
+  {% else %}
+    <a href="/">LOGIN First!</a>
+    {% endif %}
