@@ -17,8 +17,7 @@ mysql = MySQL(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
-
+    return render_template('home.html')
 
 @app.route('/', methods=["GET", "POST"])
 def main():
@@ -59,7 +58,7 @@ def login():
             if password == account['password']:
                 session['name'] = account['name']
                 session['email'] = account ['email']
-                return redirect(url_for('index'))
+                return redirect(url_for('user'))
         else:
             return 'Error password or account does not match'
     else :
@@ -68,11 +67,15 @@ def login():
 @app.route('/logout')
 def logout():
     session.clear()
-    return render_template('login.html')
+    return render_template('home.html')
 
 @app.route ('/about')
 def about():
     return render_template('about.html')
+
+@app.route ('/user')
+def user():
+    return render_template('index.html')
 
 @app.route ('/data')
 def datapage():
