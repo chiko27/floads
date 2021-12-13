@@ -2840,6 +2840,9 @@ a.bg-danger:hover {
 .text-right {
   text-align: right; }
 
+.text-justify {
+  text-align: justify; }
+
 /*====== Text-align css ends ======*/
 /*====== Text-Transform css starts ======*/
 .text-capitalize {
